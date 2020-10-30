@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+
+<action name="top">
+  <one-of>
+    <item>main menu</item>
+    <item>top</item>
+    <item>beginning</item>
+    <item>cancel</item>
+    <item>forget it</item>
+    <item>never mind</item>
+    <item>abort</item>
+  </one-of>
+</action>
+
+<action name="up">
+  <one-of>
+    <item>up</item>
+    <item>back</item>
+    <item>go back</item>
+  </one-of>
+</action>
+
+<question speaker="user" predicate="selected_project" type="wh_question">
+	<one-of>
+	<item>get my lists</item>
+	<item>get my projects</item>
+	<item>read my projects</item>
+	<item>read my lists</item>
+	</one-of>
+</question>
+
+<question speaker="all" predicate="selected_project" type="wh_question">the lists</question>
+
+  
+<answer speaker="system" predicate="selected_project">
+   Here are your lists: <slot predicate="selected_project"/>
+</answer>
+
+
+
+</grammar>

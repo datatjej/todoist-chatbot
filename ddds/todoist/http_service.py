@@ -4,10 +4,13 @@ import json
 
 from flask import Flask, request
 from jinja2 import Environment
+from urllib.request import Request, urlopen
+import todoist
+from todoist.api import TodoistAPI
+from tova_key import key as tovakey
 
 app = Flask(__name__)
 environment = Environment()
-
 
 def jsonfilter(value):
     return json.dumps(value)
@@ -149,3 +152,15 @@ def action_success_response():
         mimetype='application/json'
     )
     return response
+	
+@app.route("/get_projects", methods=['POST'])
+def get_projects(key=tovakey):
+    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api.sync()
+    projects = api.state['projects']
+    #projects = "dumstrut"
+    projects = str(projects).strip('[]')
+    print("TYPE: ", type(projects))
+    for project in api.state['projects']:
+        print(project)
+    return query_response(value=projects, grammar_entry=None)

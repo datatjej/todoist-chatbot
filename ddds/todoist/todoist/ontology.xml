@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="TodoistOntology">
+
+ <predicate name="item_to_add" sort="string"/>
+ <predicate name="selected_project" sort="string"/>
+ <predicate name="time_to_remind" sort="string"/>
+ <predicate name="date_to_remind" sort="string"/>
+ 
+
+</ontology>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+
+<query name="selected_project">
+      <parameters>
+      </parameters>      
+    <target>
+      <http endpoint="http://http-service/get_projects"/>
+    </target>
+</query>  
+  
+</service_interface>
