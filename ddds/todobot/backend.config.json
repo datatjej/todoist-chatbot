@@ -1,8 +1,8 @@
 {
-    "active_ddd": "todoist",
+    "active_ddd": "todobot",
     "asr": "none",
     "ddds": [
-        "todoist"
+        "todobot"
     ],
     "inactive_seconds_allowed": 7200,
     "repeat_questions": true,

@@ -157,10 +157,8 @@ def action_success_response():
 def get_projects(key=tovakey):
     api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
     api.sync()
-    projects = api.state['projects']
-    #projects = "dumstrut"
-    projects = str(projects).strip('[]')
-    print("TYPE: ", type(projects))
+    projects = []
     for project in api.state['projects']:
-        print(project)
+        projects.append(project['name'])
+    projects = ', '.join([str(elem) for elem in projects]) 
     return query_response(value=projects, grammar_entry=None)

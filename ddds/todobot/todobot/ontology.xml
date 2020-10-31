@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ontology name="TodoistOntology">
+<ontology name="TodobotOntology">
 
  <predicate name="item_to_add" sort="string"/>
  <predicate name="selected_project" sort="string"/>

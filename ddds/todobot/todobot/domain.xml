@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<domain name="TodoistDomain" is_super_domain="true">
+<domain name="TodobotDomain" is_super_domain="true">
   <goal type="perform" action="top">
     <plan>
       <forget_all/>
