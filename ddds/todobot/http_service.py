@@ -162,3 +162,14 @@ def get_projects(key=tovakey):
         projects.append(project['name'])
     projects = ', '.join([str(elem) for elem in projects]) 
     return query_response(value=projects, grammar_entry=None)
+	
+@app.route("/create_project", methods=['POST'])
+def create_project(key=tovakey):
+    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api.sync()
+    payload = request.get_json()
+    project_to_add = payload["context"]["facts"]["project_to_add"]["value"]
+    added_project = api.projects.add(project_to_add)
+    api.commit()
+    print("ADDED PROJECT:", added_project)
+    return action_success_response()

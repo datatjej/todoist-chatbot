@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ontology name="TodobotOntology">
 
+ <action name="create_project"/>
+ 
+ <!-- <action name="show_projects"/> -->
+ 
  <predicate name="item_to_add" sort="string"/>
- <predicate name="selected_project" sort="string"/>
+ <predicate name="project_to_add" sort="string"/>
+ <predicate name="project_to_show" sort="string"/>
  <predicate name="time_to_remind" sort="string"/>
  <predicate name="date_to_remind" sort="string"/>
  
+  <sort name="project_type"/>
+  
+  <individual name ="project_todo" sort ="project_type"/>
+  <individual name ="project_today" sort ="project_type"/>
+  <individual name ="project_shopping" sort ="project_type"/>
+  <individual name ="project_week" sort ="project_type"/>
 
+ 
 </ontology>

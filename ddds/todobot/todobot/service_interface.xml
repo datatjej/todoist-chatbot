@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <service_interface>
 
-<query name="selected_project">
+
+<query name="project_to_show">
       <parameters>
       </parameters>      
     <target>
       <http endpoint="http://http-service/get_projects"/>
     </target>
 </query>  
+
+
+<!--
+<action name="ShowAllProjects">
+  <parameters>
+  </parameters>
+    <failure_reasons/>
+  <target>
+    <http endpoint="http://http-service/get_project"/>
+  </target>
+</action>
+-->
+  
+<action name="CreateProject">
+  <parameters>
+    <parameter predicate="project_to_add" format="value"/>
+  </parameters>
+    <failure_reasons/>
+  <target>
+    <http endpoint="http://http-service/create_project"/>
+  </target>
+</action>
   
 </service_interface>

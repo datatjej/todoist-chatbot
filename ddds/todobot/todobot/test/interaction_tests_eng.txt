@@ -4,3 +4,9 @@ S> What would you like to do?
 --- get lists
 U> Get my lists
 S> Here are your lists: *
+
+--- create list (incremental)
+U> I want to make a list for tomorrow
+S> What should it be called?
+U> Shopping
+S> A list called Shopping has been created
