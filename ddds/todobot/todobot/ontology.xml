@@ -2,21 +2,27 @@
 <ontology name="TodobotOntology">
 
  <action name="create_project"/>
+ <action name="create_task"/>
+
  
- <!-- <action name="show_projects"/> -->
- 
- <predicate name="item_to_add" sort="string"/>
+ <predicate name="task_to_add" sort="string"/>
  <predicate name="project_to_add" sort="string"/>
  <predicate name="project_to_show" sort="string"/>
  <predicate name="time_to_remind" sort="string"/>
  <predicate name="date_to_remind" sort="string"/>
  
-  <sort name="project_type"/>
+  <sort name="project_type" dynamic="true"/>
+  <sort name="task" dynamic="true"/>
   
   <individual name ="project_todo" sort ="project_type"/>
   <individual name ="project_today" sort ="project_type"/>
   <individual name ="project_shopping" sort ="project_type"/>
   <individual name ="project_week" sort ="project_type"/>
-
+  <individual name ="project_inbox" sort ="project_type"/>
+  
+  <individual name ="task_noodles" sort ="task"/>
+  <individual name ="task_woksauce" sort ="task"/>
+  <individual name ="task_zuchhini" sort ="task"/>
+  <individual name ="task_springonions" sort ="task"/>
  
 </ontology>

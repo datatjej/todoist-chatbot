@@ -152,6 +152,12 @@ def action_success_response():
         mimetype='application/json'
     )
     return response
+
+def extract_projects(api):
+    projects = []
+    for project in api.state['projects']:
+        projects.append((project['name'], project['id']))
+    return projects
 	
 @app.route("/get_projects", methods=['POST'])
 def get_projects(key=tovakey):
@@ -173,3 +179,37 @@ def create_project(key=tovakey):
     api.commit()
     print("ADDED PROJECT:", added_project)
     return action_success_response()
+	
+@app.route("/create_task", methods=['POST'])
+def create_task(key=tovakey):
+    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api.sync()
+    payload = request.get_json()
+    task_to_add = payload["context"]["facts"]["task_to_add"]["value"]
+	"""target_project = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
+    projects = extract_projects(api)
+    existing_project = false
+    for project in projects:
+        if project[0].lower == target_project:
+            added_task = api.items.add(task_to_add, project_id=project[1])
+        elif project_found == false:
+            added_project = api.projects.add(target_project)
+            added_task = api.items.add(task_to_add, project_id=added_project['id'])"""
+    if "project_to_add" in payload['context']['facts'].keys():
+        target_project = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
+        print("TARGET PROJECT: ", target_project)
+        projects = extract_projects(api)
+        project_found = false
+        for project in projects:
+            if project[0].lower == target_project:
+                project_found = true
+                added_task = api.items.add(task_to_add, project_id=project[1])
+         if project_found == false:
+            added_project = api.projects.add(target_project)
+            added_task = api.items.add(task_to_add, project_id=added_project['id'])
+    else:
+        added_task = api.items.add(task_to_add)
+    print("ADDED TASK: ", added_task)
+    api.commit()
+    return action_success_response()
+

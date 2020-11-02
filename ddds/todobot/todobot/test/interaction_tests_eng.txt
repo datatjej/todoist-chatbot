@@ -2,11 +2,25 @@
 S> What would you like to do?
 
 --- get lists
-U> Get my lists
+U> Show me my lists please
 S> Here are your lists: *
 
 --- create list (incremental)
-U> I want to make a list for tomorrow
-S> What should it be called?
-U> Shopping
-S> A list called Shopping has been created
+U> I want to make a new list
+S> What should the list be called?
+U> shopping
+S> A list called shopping has been created
+
+--- create task (unnamed)
+U> Add new task
+S> What should the task be called?
+U> wok sauce
+S> Task wok sauce has been added
+
+--- create task (simple)
+U> Add task noodles
+S> Task noodles has been added
+
+--- create task (in list)
+U> Add task noodles to shopping
+S> Task noodles has been added
