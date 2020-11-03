@@ -186,15 +186,6 @@ def create_task(key=tovakey):
     api.sync()
     payload = request.get_json()
     task_to_add = payload["context"]["facts"]["task_to_add"]["value"]
-	"""target_project = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
-    projects = extract_projects(api)
-    existing_project = false
-    for project in projects:
-        if project[0].lower == target_project:
-            added_task = api.items.add(task_to_add, project_id=project[1])
-        elif project_found == false:
-            added_project = api.projects.add(target_project)
-            added_task = api.items.add(task_to_add, project_id=added_project['id'])"""
     if "project_to_add" in payload['context']['facts'].keys():
         target_project = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
         print("TARGET PROJECT: ", target_project)
@@ -204,7 +195,7 @@ def create_task(key=tovakey):
             if project[0].lower == target_project:
                 project_found = true
                 added_task = api.items.add(task_to_add, project_id=project[1])
-         if project_found == false:
+        if project_found == false:
             added_project = api.projects.add(target_project)
             added_task = api.items.add(task_to_add, project_id=added_project['id'])
     else:

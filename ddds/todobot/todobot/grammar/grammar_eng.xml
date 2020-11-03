@@ -86,6 +86,6 @@
 </answer>
 
 <report action="CreateProject" status="ended">a list called <slot predicate="project_to_add"/> has been created</report>
-<report action="CreateTask" status="ended">task <slot predicate="project_to_add"/> has been added</report>
+<report action="CreateTask" status="ended">task <slot predicate="task_to_add"/> has been added</report>
 
 </grammar>
