@@ -22,5 +22,5 @@ U> Add task noodles
 S> Task noodles has been added
 
 --- create task (in list)
-U> Add task noodles to shopping
+U> Add task noodles to the shopping list
 S> Task noodles has been added

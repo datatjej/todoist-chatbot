@@ -174,7 +174,7 @@ def create_project(key=tovakey):
     api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
     api.sync()
     payload = request.get_json()
-    project_to_add = payload["context"]["facts"]["project_to_add"]["value"]
+    project_to_add = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
     added_project = api.projects.add(project_to_add)
     api.commit()
     print("ADDED PROJECT:", added_project)
@@ -185,17 +185,22 @@ def create_task(key=tovakey):
     api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
     api.sync()
     payload = request.get_json()
-    task_to_add = payload["context"]["facts"]["task_to_add"]["value"]
+    task_to_add = payload["context"]["facts"]["task_to_add"]["grammar_entry"]
     if "project_to_add" in payload['context']['facts'].keys():
         target_project = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
         print("TARGET PROJECT: ", target_project)
         projects = extract_projects(api)
-        project_found = false
+        print("PROJECTS: ", projects)
+        project_found = False
+        print("COMPARE TARGET PROJECT AND EXISTING PROJECTS") 
         for project in projects:
-            if project[0].lower == target_project:
-                project_found = true
+            print("PROJECT: ", project, "TARGET_PROJECT: ", target_project)
+            print("PROJECT[0].LOWER: ", project[0].lower, "TARGET_PROJECT.LOWER: ", target_project.lower)
+            if project[0].lower() == target_project.lower():
+                project_found = True
+                print("PROJECT_FOUND: ", project_found)
                 added_task = api.items.add(task_to_add, project_id=project[1])
-        if project_found == false:
+        if project_found == False:
             added_project = api.projects.add(target_project)
             added_task = api.items.add(task_to_add, project_id=added_project['id'])
     else:

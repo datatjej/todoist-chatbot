@@ -5,8 +5,8 @@
  <action name="create_task"/>
 
  
- <predicate name="task_to_add" sort="string"/>
- <predicate name="project_to_add" sort="string"/>
+ <predicate name="task_to_add" sort="task"/>
+ <predicate name="project_to_add" sort="project_type"/>
  <predicate name="project_to_show" sort="string"/>
  <predicate name="time_to_remind" sort="string"/>
  <predicate name="date_to_remind" sort="string"/>
