@@ -21,10 +21,12 @@
   </one-of>
 </action>
 
-  <individual name="project_todo">todo</individual>
-  <individual name="project_today">today</individual>
-  <individual name="project_week">week</individual>
-  <individual name="project_shopping">shopping</individual>
+  <individual name="project_todo">TODO</individual>
+  <individual name="project_today">Today</individual>
+  <individual name="project_week">Week</individual>
+  <individual name="project_shopping">Shopping</individual>
+  
+  
   <individual name="project_inbox">inbox</individual>
   
   <individual name="task_noodles">noodles</individual>
