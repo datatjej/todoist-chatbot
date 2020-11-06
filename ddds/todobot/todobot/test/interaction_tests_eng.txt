@@ -5,11 +5,11 @@ S> What would you like to do?
 U> Show me my lists please
 S> Here are your lists: *
 
---- create list (incremental)
-U> I want to make a new list
+--- create list
+U> Okay I want to make a new list for tomorrow
 S> What should the list be called?
-U> shopping
-S> A list called shopping has been created
+U> Shopping
+S> A list called Shopping has been created
 
 --- create task (unnamed)
 U> Add new task
@@ -18,9 +18,9 @@ U> wok sauce
 S> Task wok sauce has been added
 
 --- create task (simple)
-U> Add task noodles
+U> I want to buy noodles
 S> Task noodles has been added
 
 --- create task (in list)
-U> Add task noodles to the shopping list
-S> Task noodles has been added
+U> Add task spring onions to the Shopping list
+S> Task spring onions has been added

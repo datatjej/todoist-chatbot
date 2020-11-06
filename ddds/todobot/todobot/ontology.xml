@@ -3,15 +3,16 @@
 
  <action name="create_project"/>
  <action name="create_task"/>
+ <!-- <action name="create_deadline"/> -->
 
  
  <predicate name="task_to_add" sort="task"/>
  <predicate name="project_to_add" sort="project_type"/>
- <predicate name="project_to_show" sort="string"/>
- <predicate name="time_to_remind" sort="string"/>
- <predicate name="date_to_remind" sort="string"/>
+ <predicate name="project_to_show" sort="string"/> <!-- integrate into project_to_add?? -->
+ <predicate name="due_date" sort="date"/>
  
   <sort name="project_type" dynamic="true"/>
+  <sort name="date" dynamic="true"/>
   <sort name="task" dynamic="true"/>
   
   <individual name ="project_todo" sort ="project_type"/>
@@ -24,5 +25,26 @@
   <individual name ="task_woksauce" sort ="task"/>
   <individual name ="task_zuchhini" sort ="task"/>
   <individual name ="task_springonions" sort ="task"/>
+  <individual name ="task_dog" sort ="task"/>
+  
+  <individual name ="date_today" sort ="date"/>
+  <individual name ="date_tomorrow" sort ="date"/>
+  <individual name ="date_tomorrow_4pm" sort ="date"/>
+  <individual name ="date_fri_at_7pm" sort ="date"/>
+  <individual name ="date_nextweek" sort ="date"/>
+  <individual name ="date_nextmonth" sort ="date"/>
+  <individual name ="date_jan27" sort ="date"/>
+  <individual name ="date_dd_mm_yyyy" sort ="date"/>
+  <individual name ="date_27th" sort ="date"/>
+  <individual name ="date_mid_january" sort ="date"/>
+  <individual name ="date_end_of_month" sort ="date"/>
+  <individual name ="date_today_at_10" sort ="date"/>
+  <individual name ="date_tomorrow_at_1600" sort ="date"/>
+  <individual name ="date_6pm" sort ="date"/>
+  <individual name ="date_in_five_days" sort ="date"/>
+  <individual name ="date_in_three_weeks" sort ="date"/>
+  <individual name ="date_in_two_hours" sort ="date"/>
+
+  
  
 </ontology>

@@ -190,22 +190,27 @@ def create_task(key=tovakey):
         target_project = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
         print("TARGET PROJECT: ", target_project)
         projects = extract_projects(api)
-        print("PROJECTS: ", projects)
+        #print("PROJECTS: ", projects)
         project_found = False
-        print("COMPARE TARGET PROJECT AND EXISTING PROJECTS") 
+        #print("COMPARE TARGET PROJECT AND EXISTING PROJECTS") 
         for project in projects:
-            print("PROJECT: ", project, "TARGET_PROJECT: ", target_project)
-            print("PROJECT[0].LOWER: ", project[0].lower, "TARGET_PROJECT.LOWER: ", target_project.lower)
+            #print("PROJECT: ", project, "TARGET_PROJECT: ", target_project)
+            #print("PROJECT[0].LOWER: ", project[0].lower, "TARGET_PROJECT.LOWER: ", target_project.lower)
             if project[0].lower() == target_project.lower():
                 project_found = True
-                print("PROJECT_FOUND: ", project_found)
+                #print("PROJECT_FOUND: ", project_found)
                 added_task = api.items.add(task_to_add, project_id=project[1])
         if project_found == False:
             added_project = api.projects.add(target_project)
             added_task = api.items.add(task_to_add, project_id=added_project['id'])
     else:
         added_task = api.items.add(task_to_add)
-    print("ADDED TASK: ", added_task)
+    # print("ADDED TASK: ", added_task)
     api.commit()
     return action_success_response()
+	
+def create_reminder(key=tovakey):
+    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api.sync()
+	 
 

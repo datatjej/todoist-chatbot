@@ -25,18 +25,35 @@
   <individual name="project_today">Today</individual>
   <individual name="project_week">Week</individual>
   <individual name="project_shopping">Shopping</individual>
-  
-  
   <individual name="project_inbox">inbox</individual>
   
   <individual name="task_noodles">noodles</individual>
   <individual name="task_woksauce">wok sauce</individual>
   <individual name="task_zuchhini">zuchhini</individual>
   <individual name="task_springonions">spring onions</individual>
+  <individual name ="task_dog">pick up the dog from day care</individual>
+  
+   <individual name ="date_today">today</individual>
+  <individual name ="date_tomorrow">tomorrow</individual>
+  <individual name ="date_tomorrow_4pm">tomorrow at 4 pm</individual>
+  <individual name ="date_fri_at_7pm">fri @ 7pm</individual>
+  <individual name ="date_nextweek">next week</individual>
+  <individual name ="date_nextmonth">next month</individual>
+  <individual name ="date_jan27">jan 27th</individual>
+  <individual name ="date_dd_mm_yyyy">01/27/2016</individual>
+  <individual name ="date_27th">27th</individual>
+  <individual name ="date_mid_january">mid january</individual>
+  <individual name ="date_end_of_month">end of month</individual>
+  <individual name ="date_today_at_10">today at 10</individual>
+  <individual name ="date_tomorrow_at_1600">tomorrow at 16:00</individual>
+  <individual name ="date_6pm">6pm</individual>
+  <individual name ="date_in_five_days">in five days</individual>
+  <individual name ="date_in_three_weeks">in three weeks</individual>
+  <individual name ="date_in_two_hours">in two hours</individual>
 
 <action name="create_project">
   <one-of>
-    <item>I want to make a new list</item>
+    <item>Okay I want to make a new list for tomorrow</item>
     <item>I want to make a list for tomorrow</item>
     <item>make a <slot predicate="project_to_add"/> list</item>
 	<item>make a list called <slot predicate="project_to_add"/></item>
@@ -51,7 +68,9 @@
 
 <action name="create_task">
   <one-of>
+    <item><slot predicate="task_to_add"/></item>
 	<item>add new task</item>
+	<item>add a new task</item>
     <item>add task <slot predicate="task_to_add"/></item>
 	<item>add task <slot predicate="task_to_add"/> to <slot predicate="project_to_add"/></item>
 	<item>create task <slot predicate="task_to_add"/></item>
