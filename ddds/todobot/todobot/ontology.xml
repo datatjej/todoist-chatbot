@@ -2,12 +2,14 @@
 <ontology name="TodobotOntology">
 
  <action name="create_project"/>
+ <action name="create_shop_project"/>
  <action name="create_task"/>
   <!-- <action name="create_deadline"/> -->
  
  <predicate name="my_projects" sort="string"/>
  <predicate name="items_in_project" sort="string"/>
  <predicate name="project_to_fetch" sort="project_type"/>
+ <predicate name="shop_name" sort="shop"/>
  
  <predicate name="task1_to_add" sort="task"/>
  <predicate name="task2_to_add" sort="task"/>
@@ -18,6 +20,13 @@
   <sort name="project_type" dynamic="true"/>
   <sort name="date" dynamic="true"/>
   <sort name="task" dynamic="true"/>
+  <sort name="shop" dynamic="true"/>
+  
+  <individual name ="shop_ahlens" sort ="shop"/>
+  <individual name ="shop_lidl" sort ="shop"/>
+  <individual name ="shop_hemkop" sort ="shop"/>
+  <individual name ="shop_ica" sort ="shop"/>
+  <individual name ="shop_ikea" sort ="shop"/>
   
   <individual name ="project_todo" sort ="project_type"/>
   <individual name ="project_today" sort ="project_type"/>
@@ -30,6 +39,9 @@
   <individual name ="task_zucchini" sort ="task"/>
   <individual name ="task_springonions" sort ="task"/>
   <individual name ="task_dog" sort ="task"/>
+  <individual name ="task_shampoo" sort ="task"/>
+  <individual name ="task_soap" sort ="task"/>
+  <individual name ="task_hairbalm" sort ="task"/>
   
   <individual name ="date_today" sort ="date"/>
   <individual name ="date_tomorrow" sort ="date"/>

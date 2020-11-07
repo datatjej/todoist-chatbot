@@ -187,7 +187,7 @@ def show_items(key=tovakey):
             items = api.projects.get_data(project[1])
             for value in items['items']:
                 items_list.append(value['content'])
-    items_to_show = ', \t'.join([str(elem) for elem in items_list]) 
+    items_to_show = ', '.join([str(elem) for elem in items_list]) 
     if project_found == False:
         items_to_show = "Sorry, no such list was found"
     return query_response(value=items_to_show, grammar_entry=None)
@@ -198,7 +198,23 @@ def create_project(key=tovakey):
     api.sync()
     payload = request.get_json()
     project_to_add = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
-    added_project = api.projects.add(project_to_add)
+    if "shop_name" in payload['context']['facts'].keys():
+        shop_name = payload["context"]["facts"]["shop_name"]["grammar_entry"]
+        added_project = api.projects.add(shop_name)
+    else:
+        added_project = api.projects.add(project_to_add)
+    api.commit()
+    print("ADDED PROJECT:", added_project)
+    return action_success_response()
+
+@app.route("/create_shop_project", methods=['POST'])	
+def create_shop_project(key=tovakey):
+    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api.sync()
+    payload = request.get_json()
+    project_to_add = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
+    shop_name = payload["context"]["facts"]["shop_name"]["grammar_entry"]
+    added_project = api.projects.add(shop_name)
     api.commit()
     print("ADDED PROJECT:", added_project)
     return action_success_response()
@@ -233,7 +249,7 @@ def create_task(key=tovakey):
                     added_task1 = api.items.add(task1_to_add, project_id=project[1])
                 elif no_of_tasks == 2:
                     added_task1 = api.items.add(task1_to_add, project_id=project[1])
-                    added_task2 = api.items.add(task_to_add, project_id=project[1])
+                    added_task2 = api.items.add(task2_to_add, project_id=project[1])
                 elif no_of_tasks == 3:
                     added_task1 = api.items.add(task1_to_add, project_id=project[1])
                     added_task2 = api.items.add(task2_to_add, project_id=project[1])
@@ -244,7 +260,7 @@ def create_task(key=tovakey):
                 added_task1 = api.items.add(task1_to_add, project_id=added_project['id'])
             elif no_of_tasks == 2:
                 added_task1 = api.items.add(task1_to_add, project_id=added_project['id'])
-                added_task2 = api.items.add(task_to_add, project_id=added_project['id'])
+                added_task2 = api.items.add(task2_to_add, project_id=added_project['id'])
             elif no_of_tasks == 3:
                 added_task1 = api.items.add(task1_to_add, project_id=added_project['id'])
                 added_task2 = api.items.add(task2_to_add, project_id=added_project['id'])

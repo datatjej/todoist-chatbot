@@ -1,15 +1,23 @@
 --- main menu
 S> What would you like to do?
 
---- get lists
+--- show lists
 U> Show me my lists please
 S> Here are your lists: *
+
+--- show tasks in one list
+U> Show me Today
+S> Here are your tasks: *
 
 --- create list
 U> Okay I want to make a new list for tomorrow
 S> What should the list be called?
 U> Shopping
 S> A list called Shopping has been created
+
+--- create another shopping list (one shot + over-answering)
+U> I want another shopping list for Åhléns
+S> A shopping list called Åhléns has been created
 
 --- create many tasks
 U> I want to buy noodles. I want to buy wok sauce. I want to buy zucchini
@@ -24,6 +32,7 @@ S> Added task(s)
 --- create task (simple)
 U> I want to buy noodles
 S> Added task(s)
+
 --- create task (in list)
-U> Add task spring onions to the Shopping list
+U> Add spring onions to the Shopping list
 S> Added task(s)
