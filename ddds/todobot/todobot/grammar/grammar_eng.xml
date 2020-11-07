@@ -46,6 +46,7 @@
   <individual name ="date_tomorrow">tomorrow</individual>
   <individual name ="date_tomorrow_4pm">tomorrow at 4 pm</individual>
   <individual name ="date_fri_at_7pm">fri @ 7pm</individual>
+  <individual name ="date_thursday_at_1pm">thursday at 1 pm</individual>
   <individual name ="date_nextweek">next week</individual>
   <individual name ="date_nextmonth">next month</individual>
   <individual name ="date_jan27">jan 27th</individual>
@@ -78,15 +79,47 @@
 
 <action name="create_shop_project">
   <one-of>
+   <item>I want another shopping list for <slot predicate="shop_name"/></item>
    <item>I want to make a list for a shop</item>   
    <item>make a <slot predicate="project_to_add"/> list for <slot predicate="shop_name"/></item>
    <item>make a <slot predicate="project_to_add"/> list for <slot predicate="shop_name"/> please</item>
    <item>I want to make a <slot predicate="project_to_add"/> list for <slot predicate="shop_name"/></item>
-   <item>I want another <slot predicate="project_to_add"/> list for <slot predicate="shop_name"/></item>
   </one-of>
 </action>
 
 <action name="create_task">
+  <one-of>
+	<item>add new task</item>
+	<item>add task <slot predicate="task1_to_add"/></item>
+	<item>add task <slot predicate="task1_to_add"/> to <slot predicate="project_to_add"/></item>
+    <item>add <slot predicate="task1_to_add"/></item>
+	<item>add <slot predicate="task1_to_add"/> to <slot predicate="project_to_add"/></item>
+	<item>create task <slot predicate="task1_to_add"/></item>
+	<item>add <slot predicate="task1_to_add"/> to the <slot predicate="project_to_add"/> list</item>
+	<item>add <slot predicate="task1_to_add"/> to list <slot predicate="project_to_add"/></item>
+    <item>create task <slot predicate="task1_to_add"/> in <slot predicate="project_to_add"/></item>
+	<item>create task <slot predicate="task1_to_add"/> in list <slot predicate="project_to_add"/></item>
+    <item>I want to buy <slot predicate="task1_to_add"/></item>
+	<item>I want to buy <slot predicate="task1_to_add"/>. I want to buy <slot predicate="task2_to_add"/></item>
+	<item>I want to buy <slot predicate="task1_to_add"/>. I want to buy <slot predicate="task2_to_add"/>. I want to buy <slot predicate="task3_to_add"/></item>
+	<item>I want to buy <slot predicate="task1_to_add"/>. I also want to buy <slot predicate="task2_to_add"/></item>
+	<item>I want to buy <slot predicate="task1_to_add"/>, <slot predicate="task2_to_add"/> and <slot predicate="task3_to_add"/></item>
+	<item>and I want to buy <slot predicate="task1_to_add"/>, <slot predicate="task2_to_add"/> and <slot predicate="task3_to_add"/></item>
+	<item>I also want to buy <slot predicate="task1_to_add"/></item>
+	<item>I want to get <slot predicate="task1_to_add"/></item>
+	<item>I also want to get <slot predicate="task1_to_add"/></item>
+	<item>add task <slot predicate="task1_to_add"/> to <slot predicate="project_to_add"/> with due date <slot predicate="due_date"/></item>
+	<item>add <slot predicate="task1_to_add"/> with due date <slot predicate="due_date"/></item>
+	<item>add task <slot predicate="task1_to_add"/> with due date <slot predicate="due_date"/></item>
+    <item>I want to buy <slot predicate="task1_to_add"/>. I want to buy <slot predicate="task2_to_add"/>. And I want to do this on <slot predicate="due_date"/></item>
+  </one-of>
+</action>
+
+
+
+
+
+<!-- <action name="create_task">
   <one-of>
 	<item>add new task</item>
 	<item>add a new task</item>
@@ -107,7 +140,8 @@
 	<item>I want to get <slot predicate="task1_to_add"/></item>
 	<item>I also want to get <slot predicate="task1_to_add"/></item>
   </one-of>
-</action>
+</action> -->
+
 
 <question speaker="user" predicate="my_projects" type="wh_question">
 	<one-of>
@@ -155,10 +189,10 @@
    Here are your tasks: <slot predicate="items_in_project"/>
 </answer>
 
+<preconfirm action="CreateShopProject">create a shopping list called <slot predicate="shop_name"/></preconfirm>
 
 <report action="CreateProject" status="ended">a list called <slot predicate="project_to_add"/> has been created</report>
 <report action="CreateShopProject" status="ended">a shopping list called <slot predicate="shop_name"/> has been created</report>
-<!-- <report action="CreateTask" status="ended">task <slot predicate="task_to_add"/> has been added</report> -->
 <report action="CreateTask" status="ended">added task(s)</report>
 
 </grammar>

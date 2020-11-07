@@ -198,11 +198,7 @@ def create_project(key=tovakey):
     api.sync()
     payload = request.get_json()
     project_to_add = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
-    if "shop_name" in payload['context']['facts'].keys():
-        shop_name = payload["context"]["facts"]["shop_name"]["grammar_entry"]
-        added_project = api.projects.add(shop_name)
-    else:
-        added_project = api.projects.add(project_to_add)
+    added_project = api.projects.add(project_to_add)
     api.commit()
     print("ADDED PROJECT:", added_project)
     return action_success_response()
@@ -212,7 +208,6 @@ def create_shop_project(key=tovakey):
     api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
     api.sync()
     payload = request.get_json()
-    project_to_add = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
     shop_name = payload["context"]["facts"]["shop_name"]["grammar_entry"]
     added_project = api.projects.add(shop_name)
     api.commit()
@@ -226,6 +221,10 @@ def create_task(key=tovakey):
     payload = request.get_json()
     task1_to_add = payload["context"]["facts"]["task1_to_add"]["grammar_entry"]
     no_of_tasks = 1
+    if "due_date" in payload['context']['facts'].keys():
+	    due_date = payload["context"]["facts"]["due_date"]["grammar_entry"]
+    else:
+        due_date = None
     if "task2_to_add" in payload['context']['facts'].keys():
         task2_to_add = payload["context"]["facts"]["task2_to_add"]["grammar_entry"]
         no_of_tasks = 2
@@ -234,52 +233,42 @@ def create_task(key=tovakey):
         no_of_tasks = 3
     if "project_to_add" in payload['context']['facts'].keys():
         target_project = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
-        print("TARGET PROJECT: ", target_project)
         projects = extract_projects(api)
-        #print("PROJECTS: ", projects)
         project_found = False
-        #print("COMPARE TARGET PROJECT AND EXISTING PROJECTS") 
         for project in projects:
-            #print("PROJECT: ", project, "TARGET_PROJECT: ", target_project)
-            #print("PROJECT[0].LOWER: ", project[0].lower, "TARGET_PROJECT.LOWER: ", target_project.lower)
             if project[0].lower() == target_project.lower():
                 project_found = True
-                #print("PROJECT_FOUND: ", project_found)
                 if no_of_tasks == 1:
-                    added_task1 = api.items.add(task1_to_add, project_id=project[1])
+                    added_task1 = api.items.add(task1_to_add, project_id=project[1], due={"string": due_date})
                 elif no_of_tasks == 2:
-                    added_task1 = api.items.add(task1_to_add, project_id=project[1])
-                    added_task2 = api.items.add(task2_to_add, project_id=project[1])
+                    added_task1 = api.items.add(task1_to_add, project_id=project[1], due={"string": due_date})
+                    added_task2 = api.items.add(task2_to_add, project_id=project[1], due={"string": due_date})
                 elif no_of_tasks == 3:
-                    added_task1 = api.items.add(task1_to_add, project_id=project[1])
-                    added_task2 = api.items.add(task2_to_add, project_id=project[1])
-                    added_task3 = api.items.add(task3_to_add, project_id=project[1])
+                    added_task1 = api.items.add(task1_to_add, project_id=project[1], due={"string": due_date})
+                    added_task2 = api.items.add(task2_to_add, project_id=project[1], due={"string": due_date})
+                    added_task3 = api.items.add(task3_to_add, project_id=project[1], due={"string": due_date})
         if project_found == False:
-            added_project = api.projects.add(target_project)
+            added_project = api.projects.add(target_project, due={"string": due_date})
             if no_of_tasks == 1:
-                added_task1 = api.items.add(task1_to_add, project_id=added_project['id'])
+                added_task1 = api.items.add(task1_to_add, project_id=added_project['id'], due={"string": due_date})
             elif no_of_tasks == 2:
-                added_task1 = api.items.add(task1_to_add, project_id=added_project['id'])
-                added_task2 = api.items.add(task2_to_add, project_id=added_project['id'])
+                added_task1 = api.items.add(task1_to_add, project_id=added_project['id'], due={"string": due_date})
+                added_task2 = api.items.add(task2_to_add, project_id=added_project['id'], due={"string": due_date})
             elif no_of_tasks == 3:
-                added_task1 = api.items.add(task1_to_add, project_id=added_project['id'])
-                added_task2 = api.items.add(task2_to_add, project_id=added_project['id'])
-                added_task3 = api.items.add(task3_to_add, project_id=added_project['id'])
+                added_task1 = api.items.add(task1_to_add, project_id=added_project['id'], due={"string": due_date})
+                added_task2 = api.items.add(task2_to_add, project_id=added_project['id'], due={"string": due_date})
+                added_task3 = api.items.add(task3_to_add, project_id=added_project['id'], due={"string": due_date})
     else:
         if no_of_tasks == 1:
-            added_task1 = api.items.add(task1_to_add)
+            added_task1 = api.items.add(task1_to_add, due={"string": due_date})
         elif no_of_tasks == 2:
-            added_task1 = api.items.add(task1_to_add)
-            added_task2 = api.items.add(task2_to_add)
+            added_task1 = api.items.add(task1_to_add, due={"string": due_date})
+            added_task2 = api.items.add(task2_to_add, due={"string": due_date})
         elif no_of_tasks == 3:
-            added_task1 = api.items.add(task1_to_add)
-            added_task2 = api.items.add(task2_to_add)
-            added_task3 = api.items.add(task3_to_add)
+            added_task1 = api.items.add(task1_to_add, due={"string": due_date})
+            added_task2 = api.items.add(task2_to_add, due={"string": due_date})
+            added_task3 = api.items.add(task3_to_add, due={"string": due_date})
     api.commit()
     return action_success_response()
-	
-def create_reminder(key=tovakey):
-    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
-    api.sync()
 	 
 

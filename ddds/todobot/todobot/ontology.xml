@@ -47,6 +47,7 @@
   <individual name ="date_tomorrow" sort ="date"/>
   <individual name ="date_tomorrow_4pm" sort ="date"/>
   <individual name ="date_fri_at_7pm" sort ="date"/>
+  <individual name ="date_thursday_at_1pm" sort ="date"/>
   <individual name ="date_nextweek" sort ="date"/>
   <individual name ="date_nextmonth" sort ="date"/>
   <individual name ="date_jan27" sort ="date"/>

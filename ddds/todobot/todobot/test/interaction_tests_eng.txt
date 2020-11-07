@@ -15,9 +15,15 @@ S> What should the list be called?
 U> Shopping
 S> A list called Shopping has been created
 
---- create another shopping list (one shot + over-answering)
+--- create shop list
 U> I want another shopping list for Åhléns
+S> Do you want to create a shopping list called Åhléns?
+U> Yes
 S> A shopping list called Åhléns has been created
+
+--- create many tasks + due date
+U> I want to buy shampoo. I want to buy hair balm. And I want to do this on Thursday at 1 pm
+S> Added task(s)
 
 --- create many tasks
 U> I want to buy noodles. I want to buy wok sauce. I want to buy zucchini

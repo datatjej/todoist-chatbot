@@ -32,7 +32,6 @@
 <action name="CreateProject">
   <parameters>
     <parameter predicate="project_to_add" format="grammar_entry"/>
-	<parameter predicate="shop_name" format="grammar_entry" optional="true"/>
   </parameters>
     <failure_reasons/>
   <target>
@@ -42,12 +41,12 @@
 
 <action name="CreateShopProject">
   <parameters>
-    <parameter predicate="project_to_add" format="grammar_entry"/>
 	<parameter predicate="shop_name" format="grammar_entry"/>
+	<parameter predicate="project_to_add" format="grammar_entry" optional="true"/>
   </parameters>
     <failure_reasons/>
   <target>
-    <http endpoint="http://http-service/create_project"/>
+    <http endpoint="http://http-service/create_shop_project"/>
   </target>
 </action>
 

@@ -34,9 +34,9 @@
     <!--"create a shop-specific project" -->
   <goal type="perform" action="create_shop_project">
     <plan>
-	  <findout type="wh_question" predicate="project_to_add"/>
 	  <findout type="wh_question" predicate="shop_name"/>
-	  <invoke_service_action name="CreateShopProject" postconfirm="true"/>
+	  <bind type="wh_question" predicate="project_to_add"/>
+	  <invoke_service_action name="CreateShopProject" preconfirm="interrogative" postconfirm="true"/>
     </plan>
   </goal>
  
