@@ -5,8 +5,9 @@
  <action name="create_task"/>
  <!-- <action name="create_deadline"/> -->
 
- 
  <predicate name="task_to_add" sort="task"/>
+ <predicate name="task2_to_add" sort="task"/>
+ <predicate name="task3_to_add" sort="task"/>
  <predicate name="project_to_add" sort="project_type"/>
  <predicate name="project_to_show" sort="string"/> <!-- integrate into project_to_add?? -->
  <predicate name="due_date" sort="date"/>

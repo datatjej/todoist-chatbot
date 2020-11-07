@@ -11,16 +11,19 @@ S> What should the list be called?
 U> Shopping
 S> A list called Shopping has been created
 
+--- create many tasks
+U> I want to buy noodles. I want to buy wok sauce. I want to buy zucchini
+S> Added task(s) 
+
 --- create task (unnamed)
 U> Add new task
 S> What should the task be called?
 U> wok sauce
-S> Task wok sauce has been added
+S> Added task(s)
 
 --- create task (simple)
 U> I want to buy noodles
-S> Task noodles has been added
-
+S> Added task(s)
 --- create task (in list)
 U> Add task spring onions to the Shopping list
-S> Task spring onions has been added
+S> Added task(s)

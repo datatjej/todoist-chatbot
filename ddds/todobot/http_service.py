@@ -185,7 +185,14 @@ def create_task(key=tovakey):
     api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
     api.sync()
     payload = request.get_json()
-    task_to_add = payload["context"]["facts"]["task_to_add"]["grammar_entry"]
+    task1_to_add = payload["context"]["facts"]["task_to_add"]["grammar_entry"]
+    no_of_tasks = 1
+    if "task2_to_add" in payload['context']['facts'].keys():
+        task2_to_add = payload["context"]["facts"]["task2_to_add"]["grammar_entry"]
+        no_of_tasks = 2
+    if "task3_to_add" in payload['context']['facts'].keys():
+        task3_to_add = payload["context"]["facts"]["task3_to_add"]["grammar_entry"]
+        no_of_tasks = 3
     if "project_to_add" in payload['context']['facts'].keys():
         target_project = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
         print("TARGET PROJECT: ", target_project)
@@ -199,13 +206,36 @@ def create_task(key=tovakey):
             if project[0].lower() == target_project.lower():
                 project_found = True
                 #print("PROJECT_FOUND: ", project_found)
-                added_task = api.items.add(task_to_add, project_id=project[1])
+                if no_of_tasks == 1:
+                    added_task1 = api.items.add(task1_to_add, project_id=project[1])
+                elif no_of_tasks == 2:
+                    added_task1 = api.items.add(task1_to_add, project_id=project[1])
+                    added_task2 = api.items.add(task_to_add, project_id=project[1])
+                elif no_of_tasks == 3:
+                    added_task1 = api.items.add(task1_to_add, project_id=project[1])
+                    added_task2 = api.items.add(task2_to_add, project_id=project[1])
+                    added_task3 = api.items.add(task3_to_add, project_id=project[1])
         if project_found == False:
             added_project = api.projects.add(target_project)
-            added_task = api.items.add(task_to_add, project_id=added_project['id'])
+            if no_of_tasks == 1:
+                added_task1 = api.items.add(task1_to_add, project_id=added_project['id'])
+            elif no_of_tasks == 2:
+                added_task1 = api.items.add(task1_to_add, project_id=added_project['id'])
+                added_task2 = api.items.add(task_to_add, project_id=added_project['id'])
+            elif no_of_tasks == 3:
+                added_task1 = api.items.add(task1_to_add, project_id=added_project['id'])
+                added_task2 = api.items.add(task2_to_add, project_id=added_project['id'])
+                added_task3 = api.items.add(task3_to_add, project_id=added_project['id'])
     else:
-        added_task = api.items.add(task_to_add)
-    # print("ADDED TASK: ", added_task)
+        if no_of_tasks == 1:
+            added_task1 = api.items.add(task1_to_add)
+        elif no_of_tasks == 2:
+            added_task1 = api.items.add(task1_to_add)
+            added_task2 = api.items.add(task2_to_add)
+        elif no_of_tasks == 3:
+            added_task1 = api.items.add(task1_to_add)
+            added_task2 = api.items.add(task2_to_add)
+            added_task3 = api.items.add(task3_to_add)
     api.commit()
     return action_success_response()
 	

@@ -29,7 +29,7 @@
   
   <individual name="task_noodles">noodles</individual>
   <individual name="task_woksauce">wok sauce</individual>
-  <individual name="task_zuchhini">zuchhini</individual>
+  <individual name="task_zuchhini">zucchini</individual>
   <individual name="task_springonions">spring onions</individual>
   <individual name ="task_dog">pick up the dog from day care</individual>
   
@@ -68,7 +68,6 @@
 
 <action name="create_task">
   <one-of>
-    <item><slot predicate="task_to_add"/></item>
 	<item>add new task</item>
 	<item>add a new task</item>
     <item>add task <slot predicate="task_to_add"/></item>
@@ -79,6 +78,10 @@
     <item>create task <slot predicate="task_to_add"/> in <slot predicate="project_to_add"/></item>
 	<item>create task <slot predicate="task_to_add"/> in list <slot predicate="project_to_add"/></item>
     <item>I want to buy <slot predicate="task_to_add"/></item>
+	<item>I want to buy <slot predicate="task_to_add"/>. I want to buy <slot predicate="task2_to_add"/></item>
+	<item>I want to buy <slot predicate="task_to_add"/>. I want to buy <slot predicate="task2_to_add"/>. I want to buy <slot predicate="task3_to_add"/></item>
+	<item>I want to buy <slot predicate="task_to_add"/>. I also want to buy <slot predicate="task2_to_add"/></item>
+	<item>I want to buy <slot predicate="task_to_add"/>, <slot predicate="task2_to_add"/> and <slot predicate="task3_to_add"/></item>
 	<item>I also want to buy <slot predicate="task_to_add"/></item>
 	<item>I want to get <slot predicate="task_to_add"/></item>
 	<item>I also want to get <slot predicate="task_to_add"/></item>
@@ -99,7 +102,10 @@
  <question type="wh_question" speaker="all" predicate="project_to_show">lists</question>
 
 <question speaker="system" predicate="project_to_add" type="wh_question">what should the list be called</question>
+<question type="wh_question" predicate="due_date" speaker="system">what should the due date be</question>
 <question type="wh_question" predicate="task_to_add" speaker="system">what should the task be called</question>
+<question type="wh_question" predicate="task2_to_add" speaker="system">what should the task be called</question>
+<question type="wh_question" predicate="task3_to_add" speaker="system">what should the task be called</question>
  
 
 <answer speaker="system" predicate="project_to_show">
@@ -107,6 +113,7 @@
 </answer>
 
 <report action="CreateProject" status="ended">a list called <slot predicate="project_to_add"/> has been created</report>
-<report action="CreateTask" status="ended">task <slot predicate="task_to_add"/> has been added</report>
+<!-- <report action="CreateTask" status="ended">task <slot predicate="task_to_add"/> has been added</report> -->
+<report action="CreateTask" status="ended">added task(s)</report>
 
 </grammar>
