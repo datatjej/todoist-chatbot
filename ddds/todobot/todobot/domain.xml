@@ -7,10 +7,18 @@
     </plan>
   </goal>
   
-  <!--"show my projects" -->
-  <goal type="resolve" question_type="wh_question" predicate="project_to_show">
+  <!--"show me my projects" -->
+
+  <goal type="resolve" question_type="wh_question" predicate="my_projects">
     <plan>
-	  <invoke_service_query type="wh_question" predicate="project_to_show"/>
+	  <invoke_service_query type="wh_question" predicate="my_projects"/>
+    </plan>
+  </goal>
+  
+  <goal type="resolve" question_type="wh_question" predicate="items_in_project">
+    <plan>
+	  <findout type="wh_question" predicate="project_to_fetch"/>
+	  <invoke_service_query type="wh_question" predicate="items_in_project"/>
     </plan>
   </goal>
   

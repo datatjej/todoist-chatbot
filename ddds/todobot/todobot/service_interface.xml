@@ -2,11 +2,30 @@
 <service_interface>
 
 
-<query name="project_to_show">
+<query name="my_projects">
       <parameters>
+	    <parameter predicate="my_projects" format="grammar_entry" optional="true"/>
       </parameters>      
     <target>
-      <http endpoint="http://http-service/get_projects"/>
+      <http endpoint="http://http-service/show_projects"/>
+    </target>
+</query>  
+
+<query name="items_in_project">
+      <parameters>
+	    <parameter predicate="project_to_fetch" format="grammar_entry"/>
+      </parameters>      
+    <target>
+      <http endpoint="http://http-service/show_items"/>
+    </target>
+</query>  
+
+<query name="project_to_show">
+      <parameters>
+	    <parameter predicate="project_to_show" format="grammar_entry" optional="true"/>
+      </parameters>      
+    <target>
+      <http endpoint="http://http-service/show_projects"/>
     </target>
 </query>  
   

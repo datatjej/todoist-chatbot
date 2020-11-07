@@ -3,13 +3,16 @@
 
  <action name="create_project"/>
  <action name="create_task"/>
- <!-- <action name="create_deadline"/> -->
-
+  <!-- <action name="create_deadline"/> -->
+ 
+ <predicate name="my_projects" sort="string"/>
+ <predicate name="items_in_project" sort="string"/>
+ <predicate name="project_to_fetch" sort="project_type"/>
+ 
  <predicate name="task1_to_add" sort="task"/>
  <predicate name="task2_to_add" sort="task"/>
  <predicate name="task3_to_add" sort="task"/>
  <predicate name="project_to_add" sort="project_type"/>
- <predicate name="project_to_show" sort="string"/> <!-- integrate into project_to_add?? -->
  <predicate name="due_date" sort="date"/>
  
   <sort name="project_type" dynamic="true"/>
@@ -24,7 +27,7 @@
   
   <individual name ="task_noodles" sort ="task"/>
   <individual name ="task_woksauce" sort ="task"/>
-  <individual name ="task_zuchhini" sort ="task"/>
+  <individual name ="task_zucchini" sort ="task"/>
   <individual name ="task_springonions" sort ="task"/>
   <individual name ="task_dog" sort ="task"/>
   

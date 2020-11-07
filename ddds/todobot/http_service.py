@@ -159,15 +159,38 @@ def extract_projects(api):
         projects.append((project['name'], project['id']))
     return projects
 	
-@app.route("/get_projects", methods=['POST'])
-def get_projects(key=tovakey):
+@app.route("/show_projects", methods=['POST'])
+def show_projects(key=tovakey):
     api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
     api.sync()
     projects = []
     for project in api.state['projects']:
         projects.append(project['name'])
-    projects = ', '.join([str(elem) for elem in projects]) 
-    return query_response(value=projects, grammar_entry=None)
+    projects_to_show = ', '.join([str(elem) for elem in projects]) 
+    return query_response(value=projects_to_show, grammar_entry=None)
+
+@app.route("/show_items", methods=['POST'])
+def show_items(key=tovakey):
+    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api.sync()
+    items_list = []
+    payload = request.get_json()
+    project_to_fetch = payload["context"]["facts"]["project_to_fetch"]["grammar_entry"]
+    print("PROJECT_TO_FETCH: ", project_to_fetch)
+    projects = extract_projects(api)
+    project_found = False
+    print("PROJECTS: ", projects)
+    for project in projects:
+        print("PROJECT: ", project, "PROJECT_TYPE: ", type(project))
+        if project[0].lower() == project_to_fetch.lower():
+            project_found = True
+            items = api.projects.get_data(project[1])
+            for value in items['items']:
+                items_list.append(value['content'])
+    items_to_show = ', \t'.join([str(elem) for elem in items_list]) 
+    if project_found == False:
+        items_to_show = "Sorry, no such list was found"
+    return query_response(value=items_to_show, grammar_entry=None)
 	
 @app.route("/create_project", methods=['POST'])
 def create_project(key=tovakey):

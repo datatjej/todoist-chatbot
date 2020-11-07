@@ -29,7 +29,7 @@
   
   <individual name="task_noodles">noodles</individual>
   <individual name="task_woksauce">wok sauce</individual>
-  <individual name="task_zuchhini">zucchini</individual>
+  <individual name="task_zucchini">zucchini</individual>
   <individual name="task_springonions">spring onions</individual>
   <individual name ="task_dog">pick up the dog from day care</individual>
   
@@ -88,7 +88,7 @@
   </one-of>
 </action>
 
-<question speaker="user" predicate="project_to_show" type="wh_question">
+<question speaker="user" predicate="my_projects" type="wh_question">
 	<one-of>
 	<item>show me my lists please</item>
 	<item>get my lists</item>
@@ -99,7 +99,24 @@
 	</one-of>
 </question>
 
- <question type="wh_question" speaker="all" predicate="project_to_show">lists</question>
+<question speaker="user" predicate="items_in_project" type="wh_question">
+	<one-of>
+	<item>show me the items in list <slot predicate="project_to_fetch"/></item>
+	<item>read me the items in list <slot predicate="project_to_fetch"/></item>
+    <item>show me the items in the list <slot predicate="project_to_fetch"/></item>
+	<item>read me the items in the list <slot predicate="project_to_fetch"/></item>
+	<item>show me the list <slot predicate="project_to_fetch"/></item>
+	<item>show me the <slot predicate="project_to_fetch"/> list</item>
+	<item>show <slot predicate="project_to_fetch"/></item>
+    <item>show <slot predicate="project_to_fetch"/> please</item>
+	<item>show me <slot predicate="project_to_fetch"/></item>
+	<item>show me <slot predicate="project_to_fetch"/></item>
+	</one-of>
+</question>
+
+ <question type="wh_question" speaker="all" predicate="my_projects">lists</question>
+ <question type="wh_question" speaker="all" predicate="items_in_project">items</question>
+ <question type="wh_question" predicate="project_to_fetch" speaker="system">which project</question>
 
 <question speaker="system" predicate="project_to_add" type="wh_question">what should the list be called</question>
 <question type="wh_question" predicate="due_date" speaker="system">what should the due date be</question>
@@ -108,9 +125,14 @@
 <question type="wh_question" predicate="task3_to_add" speaker="system">what should the task be called</question>
  
 
-<answer speaker="system" predicate="project_to_show">
-   Here are your lists: <slot predicate="project_to_show"/>
+<answer speaker="system" predicate="my_projects">
+   Here are your lists: <slot predicate="my_projects"/>
 </answer>
+
+<answer speaker="system" predicate="items_in_project">
+   Here are your tasks: <slot predicate="items_in_project"/>
+</answer>
+
 
 <report action="CreateProject" status="ended">a list called <slot predicate="project_to_add"/> has been created</report>
 <!-- <report action="CreateTask" status="ended">task <slot predicate="task_to_add"/> has been added</report> -->
