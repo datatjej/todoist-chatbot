@@ -70,21 +70,21 @@
   <one-of>
 	<item>add new task</item>
 	<item>add a new task</item>
-    <item>add task <slot predicate="task_to_add"/></item>
-	<item>add task <slot predicate="task_to_add"/> to <slot predicate="project_to_add"/></item>
-	<item>create task <slot predicate="task_to_add"/></item>
-	<item>add task <slot predicate="task_to_add"/> to the <slot predicate="project_to_add"/> list</item>
-	<item>add task <slot predicate="task_to_add"/> to list <slot predicate="project_to_add"/></item>
-    <item>create task <slot predicate="task_to_add"/> in <slot predicate="project_to_add"/></item>
-	<item>create task <slot predicate="task_to_add"/> in list <slot predicate="project_to_add"/></item>
-    <item>I want to buy <slot predicate="task_to_add"/></item>
-	<item>I want to buy <slot predicate="task_to_add"/>. I want to buy <slot predicate="task2_to_add"/></item>
-	<item>I want to buy <slot predicate="task_to_add"/>. I want to buy <slot predicate="task2_to_add"/>. I want to buy <slot predicate="task3_to_add"/></item>
-	<item>I want to buy <slot predicate="task_to_add"/>. I also want to buy <slot predicate="task2_to_add"/></item>
-	<item>I want to buy <slot predicate="task_to_add"/>, <slot predicate="task2_to_add"/> and <slot predicate="task3_to_add"/></item>
-	<item>I also want to buy <slot predicate="task_to_add"/></item>
-	<item>I want to get <slot predicate="task_to_add"/></item>
-	<item>I also want to get <slot predicate="task_to_add"/></item>
+    <item>add task <slot predicate="task1_to_add"/></item>
+	<item>add task <slot predicate="task1_to_add"/> to <slot predicate="project_to_add"/></item>
+	<item>create task <slot predicate="task1_to_add"/></item>
+	<item>add task <slot predicate="task1_to_add"/> to the <slot predicate="project_to_add"/> list</item>
+	<item>add task <slot predicate="task1_to_add"/> to list <slot predicate="project_to_add"/></item>
+    <item>create task <slot predicate="task1_to_add"/> in <slot predicate="project_to_add"/></item>
+	<item>create task <slot predicate="task1_to_add"/> in list <slot predicate="project_to_add"/></item>
+    <item>I want to buy <slot predicate="task1_to_add"/></item>
+	<item>I want to buy <slot predicate="task1_to_add"/>. I want to buy <slot predicate="task2_to_add"/></item>
+	<item>I want to buy <slot predicate="task1_to_add"/>. I want to buy <slot predicate="task2_to_add"/>. I want to buy <slot predicate="task3_to_add"/></item>
+	<item>I want to buy <slot predicate="task1_to_add"/>. I also want to buy <slot predicate="task2_to_add"/></item>
+	<item>I want to buy <slot predicate="task1_to_add"/>, <slot predicate="task2_to_add"/> and <slot predicate="task3_to_add"/></item>
+	<item>I also want to buy <slot predicate="task1_to_add"/></item>
+	<item>I want to get <slot predicate="task1_to_add"/></item>
+	<item>I also want to get <slot predicate="task1_to_add"/></item>
   </one-of>
 </action>
 
@@ -103,7 +103,7 @@
 
 <question speaker="system" predicate="project_to_add" type="wh_question">what should the list be called</question>
 <question type="wh_question" predicate="due_date" speaker="system">what should the due date be</question>
-<question type="wh_question" predicate="task_to_add" speaker="system">what should the task be called</question>
+<question type="wh_question" predicate="task1_to_add" speaker="system">what should the task be called</question>
 <question type="wh_question" predicate="task2_to_add" speaker="system">what should the task be called</question>
 <question type="wh_question" predicate="task3_to_add" speaker="system">what should the task be called</question>
  

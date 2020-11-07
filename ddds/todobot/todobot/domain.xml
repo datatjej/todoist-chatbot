@@ -25,7 +25,7 @@
   <!--"create a task" --> 
   <goal type="perform" action="create_task">
     <plan>
-	  <findout type="wh_question" predicate="task_to_add"/>
+	  <findout type="wh_question" predicate="task1_to_add"/>
 	  <bind type="wh_question" predicate="task2_to_add"/>
 	  <bind type="wh_question" predicate="task3_to_add"/>
 	  <bind type="wh_question" predicate="project_to_add"/>

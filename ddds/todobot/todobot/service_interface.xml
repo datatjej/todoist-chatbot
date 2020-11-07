@@ -22,7 +22,7 @@
 
 <action name="CreateTask">
   <parameters>
-    <parameter predicate="task_to_add" format="grammar_entry"/>
+    <parameter predicate="task1_to_add" format="grammar_entry"/>
 	<parameter predicate="task2_to_add" format="grammar_entry" optional="true"/>
 	<parameter predicate="task3_to_add" format="grammar_entry" optional="true"/>
 	<parameter predicate="project_to_add" format="grammar_entry" optional="true"/>
