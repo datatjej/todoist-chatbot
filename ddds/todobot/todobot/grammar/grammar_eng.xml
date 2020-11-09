@@ -26,6 +26,7 @@
   <individual name="project_week">Week</individual>
   <individual name="project_shopping">Shopping</individual>
   <individual name="project_inbox">inbox</individual>
+  <individual name ="project_ahlens">Åhléns</individual>
   
   <individual name="task_noodles">noodles</individual>
   <individual name="task_woksauce">wok sauce</individual>
@@ -60,6 +61,29 @@
   <individual name ="date_in_five_days">in five days</individual>
   <individual name ="date_in_three_weeks">in three weeks</individual>
   <individual name ="date_in_two_hours">in two hours</individual>
+  
+  <individual name ="color_30">hibiscus</individual>
+  <individual name ="color_31">red</individual>
+  <individual name ="color_32">orange</individual>
+  <individual name ="color_33">yellow</individual>
+  <individual name ="color_34">earls green</individual>
+  <individual name ="color_35">green</individual> 
+  <individual name ="color_36">dark green</individual>
+  <individual name ="color_37">downy</individual>
+  <individual name ="color_38">eastern blue</individual>
+  <individual name ="color_39">teal</individual>
+  <individual name ="color_40">cornflower</individual>
+  <individual name ="color_41">blue</individual>
+  <individual name ="color_42">dark purple</individual>
+  <individual name ="color_43">bright purple</individual>
+  <individual name ="color_44">lavender</individual>
+  <individual name ="color_45">pink</individual>
+  <individual name ="color_46">tangerine</individual>
+  <individual name ="color_47">gray</individual>
+  <individual name ="color_48">silver</individual> 
+  <individual name ="color_49">brown</individual>
+
+  
 
 <action name="create_project">
   <one-of>
@@ -115,33 +139,17 @@
   </one-of>
 </action>
 
-
-
-
-
-<!-- <action name="create_task">
+<action name="color_code">
   <one-of>
-	<item>add new task</item>
-	<item>add a new task</item>
-    <item>add task <slot predicate="task1_to_add"/></item>
-	<item>add task <slot predicate="task1_to_add"/> to <slot predicate="project_to_add"/></item>
-	<item>create task <slot predicate="task1_to_add"/></item>
-	<item>add <slot predicate="task1_to_add"/> to the <slot predicate="project_to_add"/> list</item>
-	<item>add task <slot predicate="task1_to_add"/> to the <slot predicate="project_to_add"/> list</item>
-	<item>add task <slot predicate="task1_to_add"/> to list <slot predicate="project_to_add"/></item>
-    <item>create task <slot predicate="task1_to_add"/> in <slot predicate="project_to_add"/></item>
-	<item>create task <slot predicate="task1_to_add"/> in list <slot predicate="project_to_add"/></item>
-    <item>I want to buy <slot predicate="task1_to_add"/></item>
-	<item>I want to buy <slot predicate="task1_to_add"/>. I want to buy <slot predicate="task2_to_add"/></item>
-	<item>I want to buy <slot predicate="task1_to_add"/>. I want to buy <slot predicate="task2_to_add"/>. I want to buy <slot predicate="task3_to_add"/></item>
-	<item>I want to buy <slot predicate="task1_to_add"/>. I also want to buy <slot predicate="task2_to_add"/></item>
-	<item>I want to buy <slot predicate="task1_to_add"/>, <slot predicate="task2_to_add"/> and <slot predicate="task3_to_add"/></item>
-	<item>I also want to buy <slot predicate="task1_to_add"/></item>
-	<item>I want to get <slot predicate="task1_to_add"/></item>
-	<item>I also want to get <slot predicate="task1_to_add"/></item>
+   <item>color code a list</item>
+   <item>I want to color code a list</item>
+   <item>I want to color code a project</item>
+   <item>make <slot predicate="selected_project"/> <slot predicate="selected_color"/></item>
+   <item>make the <slot predicate="selected_project"/> list <slot predicate="selected_color"/></item>
+   <item><slot predicate="selected_project"/> can be <slot predicate="selected_color"/></item>
+   <item>and the <slot predicate="selected_project"/> list can be <slot predicate="selected_color"/></item>         
   </one-of>
-</action> -->
-
+</action>
 
 <question speaker="user" predicate="my_projects" type="wh_question">
 	<one-of>
@@ -156,30 +164,31 @@
 
 <question speaker="user" predicate="items_in_project" type="wh_question">
 	<one-of>
-	<item>show me the items in list <slot predicate="project_to_fetch"/></item>
-	<item>read me the items in list <slot predicate="project_to_fetch"/></item>
-    <item>show me the items in the list <slot predicate="project_to_fetch"/></item>
-	<item>read me the items in the list <slot predicate="project_to_fetch"/></item>
-	<item>show me the list <slot predicate="project_to_fetch"/></item>
-	<item>show me the <slot predicate="project_to_fetch"/> list</item>
-	<item>show <slot predicate="project_to_fetch"/></item>
-    <item>show <slot predicate="project_to_fetch"/> please</item>
-	<item>show me <slot predicate="project_to_fetch"/></item>
-	<item>show me <slot predicate="project_to_fetch"/></item>
+	<item>show me a list please</item>
+	<item>show me the items in a list please</item>
+	<item>show me the items in list <slot predicate="selected_project"/></item>
+	<item>read me the items in list <slot predicate="selected_project"/></item>
+    <item>show me the items in the list <slot predicate="selected_project"/></item>
+	<item>read me the items in the list <slot predicate="selected_project"/></item>
+	<item>show me the list <slot predicate="selected_project"/></item>
+	<item>show me the <slot predicate="selected_project"/> list</item>
+	<item>show <slot predicate="selected_project"/></item>
+    <item>show <slot predicate="selected_project"/> please</item>
+	<item>show me <slot predicate="selected_project"/></item>
+	<item>show me <slot predicate="selected_project"/></item>
 	</one-of>
 </question>
 
- <question type="wh_question" speaker="all" predicate="my_projects">lists</question>
- <question type="wh_question" speaker="all" predicate="items_in_project">items</question>
- <question type="wh_question" predicate="project_to_fetch" speaker="system">which project</question>
-
+<question type="wh_question" speaker="all" predicate="my_projects">lists</question>
+<question type="wh_question" speaker="all" predicate="items_in_project">items</question>
+<question type="wh_question" predicate="selected_project" speaker="system">which list</question>
 <question speaker="system" predicate="project_to_add" type="wh_question">what should the list be called</question>
 <question type="wh_question" predicate="due_date" speaker="system">what should the due date be</question>
 <question type="wh_question" predicate="shop_name" speaker="system">which shop</question>
 <question type="wh_question" predicate="task1_to_add" speaker="system">what should the task be called</question>
 <question type="wh_question" predicate="task2_to_add" speaker="system">what should the task be called</question>
 <question type="wh_question" predicate="task3_to_add" speaker="system">what should the task be called</question>
- 
+<question type="wh_question" predicate="selected_color" speaker="system">which color</question>
 
 <answer speaker="system" predicate="my_projects">
    Here are your lists: <slot predicate="my_projects"/>
@@ -194,5 +203,7 @@
 <report action="CreateProject" status="ended">a list called <slot predicate="project_to_add"/> has been created</report>
 <report action="CreateShopProject" status="ended">a shopping list called <slot predicate="shop_name"/> has been created</report>
 <report action="CreateTask" status="ended">added task(s)</report>
+
+<report action="ColorCode" status="ended"><slot predicate="selected_project"/> list has been colored <slot predicate="selected_color"/></report>
 
 </grammar>

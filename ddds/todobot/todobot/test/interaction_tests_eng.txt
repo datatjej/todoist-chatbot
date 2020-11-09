@@ -42,3 +42,18 @@ S> Added task(s)
 --- create task (in list)
 U> Add spring onions to the Shopping list
 S> Added task(s)
+
+--- color code
+U> Color code a list 
+S> Which list?
+U> Åhléns
+S> Which color?
+U> pink
+S> Åhléns list has been colored pink
+U> and the shopping list can be green
+S> Shopping list has been colored green
+
+
+--- create due date
+
+--- change due date

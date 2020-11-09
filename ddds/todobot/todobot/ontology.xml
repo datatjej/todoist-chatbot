@@ -4,23 +4,25 @@
  <action name="create_project"/>
  <action name="create_shop_project"/>
  <action name="create_task"/>
-  <!-- <action name="create_deadline"/> -->
+ <action name="color_code"/>
+  <!-- <action name="create_duedate"/> -->
  
  <predicate name="my_projects" sort="string"/>
+ <predicate name="selected_project" sort="project_type"/>
+ <predicate name="project_to_add" sort="project_type"/> 
  <predicate name="items_in_project" sort="string"/>
- <predicate name="project_to_fetch" sort="project_type"/>
  <predicate name="shop_name" sort="shop"/>
- 
  <predicate name="task1_to_add" sort="task"/>
  <predicate name="task2_to_add" sort="task"/>
  <predicate name="task3_to_add" sort="task"/>
- <predicate name="project_to_add" sort="project_type"/>
  <predicate name="due_date" sort="date"/>
+ <predicate name="selected_color" sort="color"/>
  
   <sort name="project_type" dynamic="true"/>
   <sort name="date" dynamic="true"/>
   <sort name="task" dynamic="true"/>
   <sort name="shop" dynamic="true"/>
+  <sort name="color"/>
   
   <individual name ="shop_ahlens" sort ="shop"/>
   <individual name ="shop_lidl" sort ="shop"/>
@@ -33,6 +35,7 @@
   <individual name ="project_shopping" sort ="project_type"/>
   <individual name ="project_week" sort ="project_type"/>
   <individual name ="project_inbox" sort ="project_type"/>
+  <individual name ="project_ahlens" sort ="project_type"/>
   
   <individual name ="task_noodles" sort ="task"/>
   <individual name ="task_woksauce" sort ="task"/>
@@ -61,7 +64,26 @@
   <individual name ="date_in_five_days" sort ="date"/>
   <individual name ="date_in_three_weeks" sort ="date"/>
   <individual name ="date_in_two_hours" sort ="date"/>
-
   
+  <individual name ="color_30" sort ="color"/>
+  <individual name ="color_31" sort ="color"/>
+  <individual name ="color_32" sort ="color"/>
+  <individual name ="color_33" sort ="color"/>
+  <individual name ="color_33" sort ="color"/>
+  <individual name ="color_35" sort ="color"/>
+  <individual name ="color_36" sort ="color"/>
+  <individual name ="color_37" sort ="color"/>
+  <individual name ="color_38" sort ="color"/>
+  <individual name ="color_39" sort ="color"/>
+  <individual name ="color_40" sort ="color"/>
+  <individual name ="color_41" sort ="color"/>
+  <individual name ="color_42" sort ="color"/>
+  <individual name ="color_43" sort ="color"/>
+  <individual name ="color_44" sort ="color"/>
+  <individual name ="color_45" sort ="color"/>
+  <individual name ="color_46" sort ="color"/>
+  <individual name ="color_47" sort ="color"/>
+  <individual name ="color_48" sort ="color"/>
+  <individual name ="color_49" sort ="color"/>
  
 </ontology>

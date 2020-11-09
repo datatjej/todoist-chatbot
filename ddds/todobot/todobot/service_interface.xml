@@ -4,7 +4,6 @@
 
 <query name="my_projects">
       <parameters>
-	    <parameter predicate="my_projects" format="grammar_entry" optional="true"/>
       </parameters>      
     <target>
       <http endpoint="http://http-service/show_projects"/>
@@ -13,19 +12,10 @@
 
 <query name="items_in_project">
       <parameters>
-	    <parameter predicate="project_to_fetch" format="grammar_entry"/>
+	    <parameter predicate="selected_project" format="grammar_entry"/>
       </parameters>      
     <target>
       <http endpoint="http://http-service/show_items"/>
-    </target>
-</query>  
-
-<query name="project_to_show">
-      <parameters>
-	    <parameter predicate="project_to_show" format="grammar_entry" optional="true"/>
-      </parameters>      
-    <target>
-      <http endpoint="http://http-service/show_projects"/>
     </target>
 </query>  
   
@@ -61,6 +51,17 @@
     <failure_reasons/>
   <target>
     <http endpoint="http://http-service/create_task"/>
+  </target>
+</action>
+
+<action name="ColorCode">
+  <parameters>
+    <parameter predicate="selected_project" format="grammar_entry"/>
+	<parameter predicate="selected_color" format="value"/>
+  </parameters>
+    <failure_reasons/>
+  <target>
+    <http endpoint="http://http-service/color_code"/>
   </target>
 </action>
   

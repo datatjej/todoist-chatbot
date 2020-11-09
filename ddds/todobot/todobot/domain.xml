@@ -8,7 +8,6 @@
   </goal>
   
   <!--"show me my projects" -->
-
   <goal type="resolve" question_type="wh_question" predicate="my_projects">
     <plan>
 	  <invoke_service_query type="wh_question" predicate="my_projects"/>
@@ -17,7 +16,7 @@
   
   <goal type="resolve" question_type="wh_question" predicate="items_in_project">
     <plan>
-	  <findout type="wh_question" predicate="project_to_fetch"/>
+	  <findout type="wh_question" predicate="selected_project"/>
 	  <invoke_service_query type="wh_question" predicate="items_in_project"/>
     </plan>
   </goal>
@@ -49,6 +48,14 @@
 	  <bind type="wh_question" predicate="project_to_add"/>
 	  <bind type="wh_question" predicate="due_date"/>
       <invoke_service_action name="CreateTask" postconfirm="true"/>
+    </plan>
+  </goal>
+  
+   <goal type="perform" action="color_code">
+    <plan>
+	  <findout type="wh_question" predicate="selected_project"/>
+	  <findout type="wh_question" predicate="selected_color"/>
+	  <invoke_service_action name="ColorCode" postconfirm="true"/>
     </plan>
   </goal>
   
