@@ -276,7 +276,9 @@ def color_code(key=tovakey):
     api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
     api.sync()
     payload = request.get_json()
-    selected_task = payload["context"]["facts"]["selected_task"]["grammar_entry"]
+    selected_project = payload["context"]["facts"]["selected_project"]["grammar_entry"]
+    selected_color = (payload["context"]["facts"]["selected_color"]["value"]).split('_')[1]
+    print("SELECTED_COLOR: ", selected_color)
     projects = extract_projects(api)
     project_found = False
     for project in projects:

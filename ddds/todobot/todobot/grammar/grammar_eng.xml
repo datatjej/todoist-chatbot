@@ -42,26 +42,7 @@
   <individual name ="shop_hemkop">Hemköp</individual>
   <individual name ="shop_ica">Ica</individual>
   <individual name ="shop_ikea">IKEA</individual>
-  
-  <individual name ="date_today">today</individual>
-  <individual name ="date_tomorrow">tomorrow</individual>
-  <individual name ="date_tomorrow_4pm">tomorrow at 4 pm</individual>
-  <individual name ="date_fri_at_7pm">fri @ 7pm</individual>
-  <individual name ="date_thursday_at_1pm">thursday at 1 pm</individual>
-  <individual name ="date_nextweek">next week</individual>
-  <individual name ="date_nextmonth">next month</individual>
-  <individual name ="date_jan27">jan 27th</individual>
-  <individual name ="date_dd_mm_yyyy">01/27/2016</individual>
-  <individual name ="date_27th">27th</individual>
-  <individual name ="date_mid_january">mid january</individual>
-  <individual name ="date_end_of_month">end of month</individual>
-  <individual name ="date_today_at_10">today at 10</individual>
-  <individual name ="date_tomorrow_at_1600">tomorrow at 16:00</individual>
-  <individual name ="date_5pm">5pm</individual>
-  <individual name ="date_6pm">6pm</individual>
-  <individual name ="date_in_five_days">in five days</individual>
-  <individual name ="date_in_three_weeks">in three weeks</individual>
-  <individual name ="date_in_two_hours">in two hours</individual>
+  <individual name ="shop_willys">Willys</individual>
   
   <individual name ="color_30">hibiscus</individual>
   <individual name ="color_31">red</individual>
@@ -85,6 +66,26 @@
   <individual name ="color_49">brown</individual>
 
   
+  <individual name ="date_today">today</individual>
+  <individual name ="date_tomorrow">tomorrow</individual>
+  <individual name ="date_tomorrow_4pm">tomorrow at 4 pm</individual>
+  <individual name ="date_fri_at_7pm">fri @ 7pm</individual>
+  <individual name ="date_thursday_at_1pm">thursday at 1 pm</individual>
+  <individual name ="date_nextweek">next week</individual>
+  <individual name ="date_nextmonth">next month</individual>
+  <individual name ="date_jan27">jan 27th</individual>
+  <individual name ="date_dd_mm_yyyy">01/27/2016</individual>
+  <individual name ="date_27th">27th</individual>
+  <individual name ="date_mid_january">mid january</individual>
+  <individual name ="date_end_of_month">end of month</individual>
+  <individual name ="date_today_at_10">today at 10</individual>
+  <individual name ="date_tomorrow_at_1600">tomorrow at 16:00</individual>
+  <individual name ="date_5pm">5pm</individual>
+  <individual name ="date_6pm">6pm</individual>
+  <individual name ="date_in_five_days">in five days</individual>
+  <individual name ="date_in_three_weeks">in three weeks</individual>
+  <individual name ="date_in_two_hours">in two hours</individual>
+    
 
 <action name="create_project">
   <one-of>
@@ -107,6 +108,7 @@
 <action name="create_shop_project">
   <one-of>
    <item>add new shopping list called <slot predicate="shop_name"/></item>
+   <item>I want another <slot predicate="project_to_add"/> list for <slot predicate="shop_name"/></item>
    <item>I want another shopping list for <slot predicate="shop_name"/></item>
    <item>I want to make a list for a shop</item>   
    <item>make a <slot predicate="project_to_add"/> list for <slot predicate="shop_name"/></item>
@@ -124,13 +126,17 @@
 	<item>add <slot predicate="task1_to_add"/> to <slot predicate="project_to_add"/></item>
 	<item>create task <slot predicate="task1_to_add"/></item>
 	<item>add <slot predicate="task1_to_add"/> to the <slot predicate="project_to_add"/> list</item>
+	<item>add <slot predicate="task1_to_add"/> and <slot predicate="task2_to_add"/>  to the <slot predicate="project_to_add"/> list</item>
+	<item>add task <slot predicate="task1_to_add"/> and task <slot predicate="task2_to_add"/>  to the <slot predicate="project_to_add"/> list</item>
 	<item>add <slot predicate="task1_to_add"/> to list <slot predicate="project_to_add"/></item>
     <item>create task <slot predicate="task1_to_add"/> in <slot predicate="project_to_add"/></item>
 	<item>create task <slot predicate="task1_to_add"/> in list <slot predicate="project_to_add"/></item>
 	<item>I want to <slot predicate="task1_to_add"/> at <slot predicate="due_date"/></item>
+	<item>you can also add that I want to <slot predicate="task1_to_add"/> at <slot predicate="due_date"/> please</item>
     <item>I want to buy <slot predicate="task1_to_add"/></item>
 	<item>I want to buy <slot predicate="task1_to_add"/>. I want to buy <slot predicate="task2_to_add"/></item>
 	<item>I want to buy <slot predicate="task1_to_add"/>. I want to buy <slot predicate="task2_to_add"/>. I want to buy <slot predicate="task3_to_add"/></item>
+	<item>I want to buy <slot predicate="task1_to_add"/> and  <slot predicate="task2_to_add"/>. And I want to do this on <slot predicate="due_date"/></item>
 	<item>I want to buy <slot predicate="task1_to_add"/>. I also want to buy <slot predicate="task2_to_add"/></item>
 	<item>I want to buy <slot predicate="task1_to_add"/>, <slot predicate="task2_to_add"/> and <slot predicate="task3_to_add"/></item>
 	<item>and I want to buy <slot predicate="task1_to_add"/>, <slot predicate="task2_to_add"/> and <slot predicate="task3_to_add"/></item>
@@ -149,7 +155,11 @@
    <item>color code a list</item>
    <item>I want to color code a list</item>
    <item>I want to color code a project</item>
-   <item>make <slot predicate="selected_project"/> <slot predicate="selected_color"/></item>
+   <item>I want to make my <slot predicate="selected_project"/> <slot predicate="selected_color"/></item>
+   <item>please change the color of <slot predicate="selected_project"/> to <slot predicate="selected_color"/></item>
+   <item>please change the color of <slot predicate="selected_project"/> list to <slot predicate="selected_color"/></item>
+   <item>make my <slot predicate="selected_project"/> list <slot predicate="selected_color"/></item>
+   <item>make <slot predicate="selected_project"/> <slot predicate="selected_color"/> please</item>
    <item>make the <slot predicate="selected_project"/> list <slot predicate="selected_color"/></item>
    <item><slot predicate="selected_project"/> can be <slot predicate="selected_color"/></item>
    <item>and the <slot predicate="selected_project"/> list can be <slot predicate="selected_color"/></item>         
@@ -212,6 +222,7 @@
     <item>show <slot predicate="selected_project"/> please</item>
 	<item>show me <slot predicate="selected_project"/></item>
 	<item>show me <slot predicate="selected_project"/></item>
+    <item>now I want you to read my whole <slot predicate="selected_project"/> list. go!</item>
 	</one-of>
 </question>
 

@@ -5,7 +5,7 @@ S> What would you like to do?
 U> Show me my lists please
 S> Here are your lists: *
 
---- show tasks in one list
+--- show tasks (simple)
 U> Show me Today
 S> Here are your tasks: *
 
@@ -16,7 +16,7 @@ U> Shopping
 S> A list called Shopping has been created
 
 --- create shop list
-U> I want another shopping list for Åhléns
+U> Make a shopping list for Åhléns
 S> Do you want to create a shopping list called Åhléns?
 U> Yes
 S> A shopping list called Åhléns has been created
@@ -27,7 +27,7 @@ S> Added task(s)
 
 --- create many tasks
 U> I want to buy noodles. I want to buy wok sauce. I want to buy zucchini
-S> Added task(s) 
+S> Added task(s)
 
 --- create task (unnamed)
 U> Add new task
@@ -43,15 +43,23 @@ S> Added task(s)
 U> Add spring onions to the Shopping list
 S> Added task(s)
 
+--- show tasks (variant)
+U> Now I want you to read my whole Shopping list. Go!
+S> Here are your tasks: *
+
 --- create task (in inbox)
-U> I want to pick up my dog from day care at 5pm
+U> You can also add that I will have to pick up my dog from day care at 5pm please
 S> Added task(s)
 
---- color code
+--- color code (simple)
+U> Make the TODO list green
+S> TODO list has been colored green
+
+--- color code (not working anymore)
 U> Color code a list 
-S> Which list?
+S> Which list
 U> Åhléns
-S> Which color?
+S> Which color
 U> pink
 S> Åhléns list has been colored pink
 U> and the shopping list can be green

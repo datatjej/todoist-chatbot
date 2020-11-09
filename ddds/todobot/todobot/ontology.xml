@@ -32,6 +32,7 @@
   <individual name ="shop_hemkop" sort ="shop"/>
   <individual name ="shop_ica" sort ="shop"/>
   <individual name ="shop_ikea" sort ="shop"/>
+  <individual name ="shop_willys" sort ="shop"/>
   
   <individual name ="project_todo" sort ="project_type"/>
   <individual name ="project_today" sort ="project_type"/>
@@ -73,7 +74,7 @@
   <individual name ="color_31" sort ="color"/>
   <individual name ="color_32" sort ="color"/>
   <individual name ="color_33" sort ="color"/>
-  <individual name ="color_33" sort ="color"/>
+  <individual name ="color_34" sort ="color"/>
   <individual name ="color_35" sort ="color"/>
   <individual name ="color_36" sort ="color"/>
   <individual name ="color_37" sort ="color"/>
