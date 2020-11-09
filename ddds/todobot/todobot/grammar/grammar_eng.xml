@@ -87,6 +87,8 @@
 
 <action name="create_project">
   <one-of>
+    <item>add new list</item>
+	<item>add a new list</item>
     <item>Okay I want to make a new list for tomorrow</item>
 	<item>I want another <slot predicate="project_to_add"/> list for <slot predicate="shop_name"/></item>
     <item>I want to make a list for tomorrow</item>
@@ -103,6 +105,7 @@
 
 <action name="create_shop_project">
   <one-of>
+   <item>add new shopping list called <slot predicate="shop_name"/></item>
    <item>I want another shopping list for <slot predicate="shop_name"/></item>
    <item>I want to make a list for a shop</item>   
    <item>make a <slot predicate="project_to_add"/> list for <slot predicate="shop_name"/></item>
@@ -151,6 +154,20 @@
   </one-of>
 </action>
 
+<action name="complete_task">
+  <one-of>
+   <item>complete a task</item>
+   <item>complete my task <slot predicate="selected_task"/></item>
+   <item>complete my task <slot predicate="selected_task"/> in <slot predicate="selected_project"/></item>
+   <item>complete <slot predicate="selected_task"/> in <slot predicate="selected_project"/></item>    
+   <item>complete <slot predicate="selected_task"/></item>
+   <item>complete <slot predicate="selected_task"/> please</item> 
+   <item>i'm done with <slot predicate="selected_task"/></item>
+   <item>i'm done with the task <slot predicate="selected_task"/></item>
+   <item>i'm done with the task <slot predicate="selected_task"/> in <slot predicate="selected_project"/></item>      
+  </one-of>
+</action>
+
 <question speaker="user" predicate="my_projects" type="wh_question">
 	<one-of>
 	<item>show me my lists please</item>
@@ -189,6 +206,7 @@
 <question type="wh_question" predicate="task2_to_add" speaker="system">what should the task be called</question>
 <question type="wh_question" predicate="task3_to_add" speaker="system">what should the task be called</question>
 <question type="wh_question" predicate="selected_color" speaker="system">which color</question>
+<question type="wh_question" predicate="selected_task" speaker="system">which task</question>
 
 <answer speaker="system" predicate="my_projects">
    Here are your lists: <slot predicate="my_projects"/>
@@ -203,7 +221,7 @@
 <report action="CreateProject" status="ended">a list called <slot predicate="project_to_add"/> has been created</report>
 <report action="CreateShopProject" status="ended">a shopping list called <slot predicate="shop_name"/> has been created</report>
 <report action="CreateTask" status="ended">added task(s)</report>
-
 <report action="ColorCode" status="ended"><slot predicate="selected_project"/> list has been colored <slot predicate="selected_color"/></report>
+<report action="CompleteTask" status="ended"><slot predicate="selected_task"/> has been crossed off the list</report>
 
 </grammar>

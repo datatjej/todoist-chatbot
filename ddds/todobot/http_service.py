@@ -276,9 +276,7 @@ def color_code(key=tovakey):
     api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
     api.sync()
     payload = request.get_json()
-    selected_project = payload["context"]["facts"]["selected_project"]["grammar_entry"]
-    selected_color = payload["context"]["facts"]["selected_color"]["value"].split('_')[1]
-    print("SELECTED COLOR: ", selected_color)
+    selected_task = payload["context"]["facts"]["selected_task"]["grammar_entry"]
     projects = extract_projects(api)
     project_found = False
     for project in projects:
@@ -288,4 +286,25 @@ def color_code(key=tovakey):
             target_project = api.projects.get_by_id(project[1])
             target_project.update(color=selected_color)
     api.commit()
+    return action_success_response()
+
+@app.route("/complete_task", methods=['POST'])
+def complete_task(key=tovakey):
+    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api.sync()
+    payload = request.get_json()
+    selected_project = payload["context"]["facts"]["selected_project"]["grammar_entry"]
+    selected_task = payload["context"]["facts"]["selected_task"]["value"].split('_')[1]
+    projects = extract_projects(api)
+    for project in projects:
+        if project[0].lower() == selected_project.lower():
+            print("project found")
+            items = api.projects.get_data(project[1])
+            for value in items['items']:
+                if value['content'] == selected_task:
+                    print("task found")
+                    task_id = value['id']
+                    item = api.items.get_by_id(task_id)
+                    item.complete()
+                    api.commit()
     return action_success_response()

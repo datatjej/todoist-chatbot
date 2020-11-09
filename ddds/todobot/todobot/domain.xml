@@ -51,11 +51,21 @@
     </plan>
   </goal>
   
+  <!--"color code a project" --> 
    <goal type="perform" action="color_code">
     <plan>
 	  <findout type="wh_question" predicate="selected_project"/>
 	  <findout type="wh_question" predicate="selected_color"/>
 	  <invoke_service_action name="ColorCode" postconfirm="true"/>
+    </plan>
+  </goal>
+  
+    <!--"complete a task" --> 
+   <goal type="perform" action="complete_task">
+    <plan>
+	  <findout type="wh_question" predicate="selected_task"/>
+	  <findout type="wh_question" predicate="selected_project"/>
+	  <invoke_service_action name="CompleteTask" postconfirm="true"/>
     </plan>
   </goal>
   

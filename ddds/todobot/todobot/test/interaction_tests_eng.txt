@@ -53,6 +53,11 @@ S> Åhléns list has been colored pink
 U> and the shopping list can be green
 S> Shopping list has been colored green
 
+--- complete task
+U> I'm done with spring onions
+S> Which list?
+U> Shopping
+S> spring onions has been crossed off the list
 
 --- create due date
 

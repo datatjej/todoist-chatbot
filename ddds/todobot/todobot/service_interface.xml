@@ -64,5 +64,16 @@
     <http endpoint="http://http-service/color_code"/>
   </target>
 </action>
+
+<action name="CompleteTask">
+  <parameters>
+  	<parameter predicate="selected_task" format="grammar_entry"/>
+    <parameter predicate="selected_project" format="grammar_entry"/>
+  </parameters>
+    <failure_reasons/>
+  <target>
+    <http endpoint="http://http-service/complete_task"/>
+  </target>
+</action>
   
 </service_interface>

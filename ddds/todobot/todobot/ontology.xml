@@ -5,11 +5,12 @@
  <action name="create_shop_project"/>
  <action name="create_task"/>
  <action name="color_code"/>
-  <!-- <action name="create_duedate"/> -->
+ <action name="complete_task"/>
  
  <predicate name="my_projects" sort="string"/>
  <predicate name="selected_project" sort="project_type"/>
- <predicate name="project_to_add" sort="project_type"/> 
+ <predicate name="selected_task" sort="task"/>
+ <predicate name="project_to_add" sort="project_type"/>
  <predicate name="items_in_project" sort="string"/>
  <predicate name="shop_name" sort="shop"/>
  <predicate name="task1_to_add" sort="task"/>
