@@ -294,7 +294,7 @@ def complete_task(key=tovakey):
     api.sync()
     payload = request.get_json()
     selected_project = payload["context"]["facts"]["selected_project"]["grammar_entry"]
-    selected_task = payload["context"]["facts"]["selected_task"]["value"].split('_')[1]
+    selected_task = payload["context"]["facts"]["selected_task"]["grammar_entry"]
     projects = extract_projects(api)
     for project in projects:
         if project[0].lower() == selected_project.lower():
@@ -308,3 +308,26 @@ def complete_task(key=tovakey):
                     item.complete()
                     api.commit()
     return action_success_response()
+	
+@app.route("/create_due_date", methods=['POST'])
+def create_due_date(key=tovakey):
+    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api.sync()
+    payload = request.get_json()
+    selected_task = payload["context"]["facts"]["selected_task"]["grammar_entry"]
+    selected_project = payload["context"]["facts"]["selected_project"]["grammar_entry"]
+    due_date = payload["context"]["facts"]["due_date"]["grammar_entry"]
+    projects = extract_projects(api)
+    for project in projects:
+        if project[0].lower() == selected_project.lower():
+            print("project found")
+            items = api.projects.get_data(project[1])
+            for value in items['items']:
+                if value['content'] == selected_task:
+                    print("task found")
+                    task_id = value['id']
+                    item = api.items.get_by_id(task_id)
+                    item.update(due={"string": due_date})
+                    api.commit()
+    return action_success_response()
+	

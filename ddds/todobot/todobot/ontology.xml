@@ -6,6 +6,7 @@
  <action name="create_task"/>
  <action name="color_code"/>
  <action name="complete_task"/>
+ <action name="create_due_date"/>
  
  <predicate name="my_projects" sort="string"/>
  <predicate name="selected_project" sort="project_type"/>
@@ -17,6 +18,7 @@
  <predicate name="task2_to_add" sort="task"/>
  <predicate name="task3_to_add" sort="task"/>
  <predicate name="due_date" sort="date"/>
+ <predicate name="old_date" sort="date"/>
  <predicate name="selected_color" sort="color"/>
  
   <sort name="project_type" dynamic="true"/>
@@ -61,6 +63,7 @@
   <individual name ="date_end_of_month" sort ="date"/>
   <individual name ="date_today_at_10" sort ="date"/>
   <individual name ="date_tomorrow_at_1600" sort ="date"/>
+  <individual name ="date_5pm" sort ="date"/>
   <individual name ="date_6pm" sort ="date"/>
   <individual name ="date_in_five_days" sort ="date"/>
   <individual name ="date_in_three_weeks" sort ="date"/>

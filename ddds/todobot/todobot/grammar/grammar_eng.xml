@@ -32,7 +32,7 @@
   <individual name="task_woksauce">wok sauce</individual>
   <individual name="task_zucchini">zucchini</individual>
   <individual name="task_springonions">spring onions</individual>
-  <individual name ="task_dog">pick up the dog from day care</individual>
+  <individual name ="task_dog">pick up my dog from day care</individual>
   <individual name ="task_shampoo">shampoo</individual>
   <individual name ="task_soap">soap</individual>
   <individual name ="task_hairbalm">hair balm</individual>
@@ -57,6 +57,7 @@
   <individual name ="date_end_of_month">end of month</individual>
   <individual name ="date_today_at_10">today at 10</individual>
   <individual name ="date_tomorrow_at_1600">tomorrow at 16:00</individual>
+  <individual name ="date_5pm">5pm</individual>
   <individual name ="date_6pm">6pm</individual>
   <individual name ="date_in_five_days">in five days</individual>
   <individual name ="date_in_three_weeks">in three weeks</individual>
@@ -126,6 +127,7 @@
 	<item>add <slot predicate="task1_to_add"/> to list <slot predicate="project_to_add"/></item>
     <item>create task <slot predicate="task1_to_add"/> in <slot predicate="project_to_add"/></item>
 	<item>create task <slot predicate="task1_to_add"/> in list <slot predicate="project_to_add"/></item>
+	<item>I want to <slot predicate="task1_to_add"/> at <slot predicate="due_date"/></item>
     <item>I want to buy <slot predicate="task1_to_add"/></item>
 	<item>I want to buy <slot predicate="task1_to_add"/>. I want to buy <slot predicate="task2_to_add"/></item>
 	<item>I want to buy <slot predicate="task1_to_add"/>. I want to buy <slot predicate="task2_to_add"/>. I want to buy <slot predicate="task3_to_add"/></item>
@@ -168,6 +170,23 @@
   </one-of>
 </action>
 
+<action name="create_due_date">
+  <one-of>
+   <item>add due date</item>
+   <item>add due date to <slot predicate="selected_task"/></item>
+   <item>add due date <slot predicate="due_date"/> to <slot predicate="selected_task"/></item>
+   <item>add due date <slot predicate="due_date"/> to my task <slot predicate="selected_task"/></item>
+   <item>add due date <slot predicate="due_date"/> to my task <slot predicate="selected_task"/> in <slot predicate="selected_project"/></item>
+   <item>add due date to my task <slot predicate="selected_task"/> in <slot predicate="selected_project"/></item>
+   <item>i want to complete <slot predicate="selected_task"/> before <slot predicate="due_date"/></item> 
+   <item>i want to buy <slot predicate="selected_task"/> before <slot predicate="due_date"/></item> 
+   <item>i want to buy <slot predicate="selected_task"/> by <slot predicate="due_date"/></item>    
+   <item><slot predicate="selected_task"/> should be done by <slot predicate="due_date"/></item>
+   <item><slot predicate="selected_task"/> should be completed by <slot predicate="due_date"/></item>    
+   <item>I don't want to <slot predicate="selected_task"/> at <slot predicate="old_date"/> change time to <slot predicate="due_date"/></item>    
+  </one-of>
+</action>
+
 <question speaker="user" predicate="my_projects" type="wh_question">
 	<one-of>
 	<item>show me my lists please</item>
@@ -196,6 +215,8 @@
 	</one-of>
 </question>
 
+ <question type="wh_question" predicate="old_date" speaker="system">what is the previous due date</question>
+
 <question type="wh_question" speaker="all" predicate="my_projects">lists</question>
 <question type="wh_question" speaker="all" predicate="items_in_project">items</question>
 <question type="wh_question" predicate="selected_project" speaker="system">which list</question>
@@ -207,6 +228,7 @@
 <question type="wh_question" predicate="task3_to_add" speaker="system">what should the task be called</question>
 <question type="wh_question" predicate="selected_color" speaker="system">which color</question>
 <question type="wh_question" predicate="selected_task" speaker="system">which task</question>
+<question type="wh_question" predicate="selected_task" speaker="system">which previous due date</question>
 
 <answer speaker="system" predicate="my_projects">
    Here are your lists: <slot predicate="my_projects"/>
@@ -223,5 +245,6 @@
 <report action="CreateTask" status="ended">added task(s)</report>
 <report action="ColorCode" status="ended"><slot predicate="selected_project"/> list has been colored <slot predicate="selected_color"/></report>
 <report action="CompleteTask" status="ended"><slot predicate="selected_task"/> has been crossed off the list</report>
+<report action="CreateDueDate" status="ended">due date of <slot predicate="selected_task"/> in <slot predicate="selected_project"/> set to <slot predicate="due_date"/></report>
 
 </grammar>

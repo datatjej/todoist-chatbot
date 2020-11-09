@@ -69,4 +69,14 @@
     </plan>
   </goal>
   
+      <!--"create/update due date" --> 
+   <goal type="perform" action="create_due_date">
+    <plan>
+	  <findout type="wh_question" predicate="selected_task"/>
+	  <findout type="wh_question" predicate="selected_project"/>
+	  <findout type="wh_question" predicate="due_date"/>
+	  <bind type="wh_question" predicate="old_date"/>
+	  <invoke_service_action name="CreateDueDate" postconfirm="true"/>
+    </plan>
+  </goal>
 </domain>

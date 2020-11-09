@@ -75,5 +75,18 @@
     <http endpoint="http://http-service/complete_task"/>
   </target>
 </action>
+
+<action name="CreateDueDate">
+  <parameters>
+  	<parameter predicate="selected_task" format="grammar_entry"/>
+    <parameter predicate="selected_project" format="grammar_entry"/>
+	<parameter predicate="due_date" format="grammar_entry"/>
+	<parameter predicate="old_date" format="grammar_entry" optional="true"/>
+  </parameters>
+    <failure_reasons/>
+  <target>
+    <http endpoint="http://http-service/create_due_date"/>
+  </target>
+</action>
   
 </service_interface>

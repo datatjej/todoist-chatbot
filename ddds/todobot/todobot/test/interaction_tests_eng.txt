@@ -43,6 +43,10 @@ S> Added task(s)
 U> Add spring onions to the Shopping list
 S> Added task(s)
 
+--- create task (in inbox)
+U> I want to pick up my dog from day care at 5pm
+S> Added task(s)
+
 --- color code
 U> Color code a list 
 S> Which list?
@@ -59,6 +63,8 @@ S> Which list?
 U> Shopping
 S> spring onions has been crossed off the list
 
---- create due date
-
 --- change due date
+U> I don’t want to pick up my dog from day care at 5pm change time to 6pm 
+S> Which list
+U> Inbox
+S> Due date of pick up my dog from day care in Inbox set to 6pm 
