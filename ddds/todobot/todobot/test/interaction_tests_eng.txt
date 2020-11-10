@@ -51,11 +51,7 @@ S> Here are your tasks: *
 U> You can also add that I will have to pick up my dog from day care at 5pm please
 S> Added task(s)
 
---- color code (simple)
-U> Make the TODO list green
-S> TODO list has been colored green
-
---- color code (not working anymore)
+--- color code (not working with RASA nlu)
 U> Color code a list 
 S> Which list
 U> Åhléns
