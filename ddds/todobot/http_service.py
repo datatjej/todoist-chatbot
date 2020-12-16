@@ -161,7 +161,7 @@ def extract_projects(api):
 	
 @app.route("/show_projects", methods=['POST'])
 def show_projects(key=tovakey):
-    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api = TodoistAPI(key)
     api.sync()
     projects = []
     for project in api.state['projects']:
@@ -194,7 +194,7 @@ def show_items(key=tovakey):
 	
 @app.route("/create_project", methods=['POST'])
 def create_project(key=tovakey):
-    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api = TodoistAPI(key)
     api.sync()
     payload = request.get_json()
     project_to_add = payload["context"]["facts"]["project_to_add"]["grammar_entry"]
@@ -205,7 +205,7 @@ def create_project(key=tovakey):
 
 @app.route("/create_shop_project", methods=['POST'])	
 def create_shop_project(key=tovakey):
-    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api = TodoistAPI(key)
     api.sync()
     payload = request.get_json()
     shop_name = payload["context"]["facts"]["shop_name"]["grammar_entry"]
@@ -216,7 +216,7 @@ def create_shop_project(key=tovakey):
 	
 @app.route("/create_task", methods=['POST'])
 def create_task(key=tovakey):
-    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api = TodoistAPI(key)
     api.sync()
     payload = request.get_json()
     task1_to_add = payload["context"]["facts"]["task1_to_add"]["grammar_entry"]
@@ -273,7 +273,7 @@ def create_task(key=tovakey):
 
 @app.route("/color_code", methods=['POST'])
 def color_code(key=tovakey):
-    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api = TodoistAPI(key)
     api.sync()
     payload = request.get_json()
     selected_project = payload["context"]["facts"]["selected_project"]["grammar_entry"]
@@ -292,7 +292,7 @@ def color_code(key=tovakey):
 
 @app.route("/complete_task", methods=['POST'])
 def complete_task(key=tovakey):
-    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api = TodoistAPI(key)
     api.sync()
     payload = request.get_json()
     selected_project = payload["context"]["facts"]["selected_project"]["grammar_entry"]
@@ -313,7 +313,7 @@ def complete_task(key=tovakey):
 	
 @app.route("/create_due_date", methods=['POST'])
 def create_due_date(key=tovakey):
-    api = TodoistAPI('cfe47f00114285b63c26f70ee05aafe093e8c839')
+    api = TodoistAPI(key)
     api.sync()
     payload = request.get_json()
     selected_task = payload["context"]["facts"]["selected_task"]["grammar_entry"]
